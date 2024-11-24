@@ -1,0 +1,160 @@
+{% extends 'main.html' %}
+
+
+
+
+{% block content %}
+<style>
+    .first {
+       
+        padding: 80px 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .first::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.8);
+        z-index: 0;
+    }
+
+    .first-content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        gap: 30px;
+    }
+
+    .first-text {
+        flex: 1;
+        padding-right: 50px;
+    }
+
+    .first-text h1 {
+        font-size: 80px;
+        font-weight: 700;
+        color: var(rgb(3, 41, 3) );
+        margin-bottom: 20px;
+    }
+
+    .second-text {
+        color: #2d4b73;
+        font-size: 100px;
+        font-weight: 900;
+        margin-bottom: 10px;
+    }
+
+    .para{
+        color: #0a213e;
+        font-size: 20px;
+        font-weight: 90;
+        margin-bottom: 2px;
+
+    }
+
+   .box {
+        background: var(--box-color);
+        color: rgb(26, 15, 15);
+        padding: 80px;
+        border-radius: 20px;
+        width: 100%;
+        max-width: 100%; 
+        box-sizing: border-box;
+        margin: 0 auto;
+    }
+
+    /* Button container */
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Button styling */
+.button {
+    text-decoration: none;
+    color: #fff;
+    background-color: #04280e;
+    padding: 20px 200px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    width: 600px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #052468;
+}
+
+
+   
+
+    
+
+    @media (max-width: 992px) {
+        .hero-text {
+            padding-right: 0;
+        }
+        
+        .hero-content {
+            flex-direction: column;
+        }
+        
+        .info-boxes {
+            flex-direction: column;
+        }
+    }
+</style>
+
+<!--<section class="first">-->
+    <div class="container">
+        <div class="first-content">
+            <div class="first-text">
+                <h1><center>Welcome MediCare Pharma!</center></h1>
+                <p class="second"><center>Empowering pharmacies with digital efficiency</center></p>
+                
+                <div class="box">
+                    <div class="options">
+                       
+
+
+                        {% if user.is_staff %}
+                    
+
+                    <!-- <li><a href="{% url 'medicine_home' %}">Logout</a></li> -->
+                     <div class="para">
+                     </p><b><center>Click to add new transaction</center></p><br><br>
+                        </div>
+                        <!-- <a href="{% url 'medicine_home' %}" style="color: rgb(252, 0, 0); font-weight: bold; text-decoration: none;"> -->
+                          <center>  <a href="http://127.0.0.1:8000/admin" style="color: rgb(252, 0, 0); font-weight: bold; text-decoration: none;">
+                                <a href="{% url 'add_transaction' %}"class="button">Transactions</a></center>
+                        </a>
+                    
+                    
+                    
+                    {% else %}
+                    <center><a href="http://127.0.0.1:8000/admin" class="button" style="color: rgb(211, 214, 231); font-weight: bold; text-decoration: none;">
+                        LogIn
+                    
+                    </a>
+                
+                    {% endif %}
+                
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediCare Pharma</title>
+   
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    
+</head>
+<body>
+   
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="{% url 'home' %}" class="logo" style="color:white;">
+                <i> MediCare Pharama </i>
+            </a>
+            <nav class="main-nav">
+                
+                <ul>
+                    <li><a href="{% url 'home' %}" class="active">Home</a></li>
+                    <li><a href="{% url 'patient_home' %}">Patients</a></li>
+                    <li><a href="{% url 'medicine_home' %}">Medicines</a></li>
+                    {% if user.is_staff %}
+                   
+
+
+                    
+                    <li>
+                        
+                            <a href="http://127.0.0.1:8000/admin" style="color: rgb(184, 76, 76); font-weight: bold; text-decoration: none;">
+                            Logout
+                        </a>
+                    </li>
+                    
+                   
+                    {% endif %}
+                
+                    
+                </ul>
+                
+            </nav>
+        </div>
+
+    </header>
+
+    <!-- Main Content -->
+    {% block content %}
+    {% endblock %}
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Address</h3>
+                    <p>
+                        No:23/B <br>
+                        MainStreet
+                        Kaluthara<br>
+                        Sri Lanka
+                    </p>
+                    
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><strong>Phone:</strong> +94763365089</li>
+                            <strong>Email:</strong> medicarepharama@gmail.com</li>
+                        
+                    </ul>
+                </div>
+                
+                
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #082d1e;
+            --secondary-color: #090615;
+            --text-color: #0c0c0c;
+            --light-bg: #c3dba5;
+            --box-color:#b6daba;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        
+
+        
+
+        /* Header */
+        .header {
+            background: var(--primary-color);
+            padding: 15px 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 30px;
+            color: var(--secondary-color);
+            text-decoration: inherit;
+            font-weight: 700;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 40px;
+        }
+
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .main-nav a:hover {
+            color: red;
+        }
+
+       
+       /* Footer */
+        .footer {
+            background: var(--primary-color); /* Primary color as background */
+            padding: 20px 0px;
+            color: #ffffff; /* White text for better contrast against the dark primary background */
+            margin-top: 50px; /* Push the footer to the bottom */
+            padding-top: 80px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #ffffff;;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+            color: #ffffff;;
+        }
+
+        
+
+        .footer-section a {
+            color: #ffffff;
+            transition: 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--light-bg); 
+        }
+
+      
+
+       
+
+        
+
+       
+    </style>
+</body>
+</html>
